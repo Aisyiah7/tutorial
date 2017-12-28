@@ -9,10 +9,14 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=100, default='')
     website = models.URLField(default='')
     phone = models.IntegerField(default=0)
+    images = models.ImageField(upload_to='profile_image', blank=True)
 
+    #return name in model
+    def __str__(self):
+        return self.user.username
 
-    def create_profile(sender, **kwargs):
-        if kwargs['created']:
-            user_profile = UserProfile.objects.create(user=kwargs['instance'])
+def create_profile(sender, **kwargs):
+    if kwargs['created']:
+        user_profile = UserProfile.objects.create(user=kwargs['instance'])
 
-    post_save.connect(create_profile, sender=User)
+post_save.connect(create_profile, sender=User)
