@@ -8,10 +8,6 @@ from django.urls import reverse
 
 # Create your views here.
 
-# @login_required
-def home(request):
-    return render(request, 'accounts/home.html')
-
 def register(request):
     if request.method == 'POST':
         #form = UserCreationForm(request.POST)

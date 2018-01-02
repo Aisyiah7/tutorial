@@ -9,8 +9,6 @@ from django.contrib.auth.views import (
 app_name="accounts"
 
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
-
     url(r'^login/$', login, {'template_name': 'accounts/login.html'}, name='login'),
     url(r'^logout/$', logout, {'template_name': 'accounts/logout.html'}, name='logout'),
     url(r'^register/$', views.register, name='register'),
@@ -34,7 +32,6 @@ urlpatterns = [
 
     url(r'^reset-password/complete/$', password_reset_complete, {'template_name': 'accounts/reset_password_complete.html'},
         name='password_reset_complete'),
-        #TO DO: CHECK THE reset_password_complete form and view
 ]
 
 # To run server for emial:
